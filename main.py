@@ -1,6 +1,7 @@
 import cv2
 from filters.blur import apply_blur
 from functions.capture import capture_button,mouse_click
+from filters.moustache import apply_moustache
 
 current_frame=None
 
@@ -27,7 +28,8 @@ def main():
       
       #Applying filter
       for(x,y,w,h) in faces:
-         frame=apply_blur(frame,x,y,w,h)
+         frame=apply_moustache(frame,x,y,w,h)
+         
       current_frame=frame.copy() 
       button_coords=capture_button(frame)
       #Display frame
