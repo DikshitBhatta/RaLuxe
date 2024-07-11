@@ -2,6 +2,7 @@ import cv2
 from filters.blur import apply_blur
 from functions.capture import capture_button,mouse_click
 from filters.moustache import apply_moustache
+from filters.glass import apply_glass
 
 current_frame=None
 
@@ -24,7 +25,7 @@ def main():
       
 
       gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)  #CONVERT FRAME TO GRAYSCALE
-      faces=face_cascade.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=6,minSize=(30,30))
+      faces=face_cascade.detectMultiScale(gray,scaleFactor=1.1,minNeighbors=10,minSize=(30,30))
       
       #Applying filter
       for(x,y,w,h) in faces:

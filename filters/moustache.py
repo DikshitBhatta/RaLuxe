@@ -11,11 +11,11 @@ def apply_moustache(frame, x, y, w, h):
         alpha = moustache_img[:, :, 3] / 255.0
         moustache_img = moustache_img[:, :, :3] 
         
-        scale_factor = w / moustache_img.shape[1]
-        moustache_resized = cv2.resize(moustache_img, None, fx=scale_factor/2, fy=scale_factor/2)
+        scale_factor = (w / moustache_img.shape[1])/1.5
+        moustache_resized = cv2.resize(moustache_img, None, fx=scale_factor, fy=scale_factor)
         
-        moustache_x = x + w // 2 - moustache_resized.shape[1] // 2
-        moustache_y = y + h // 2 
+        moustache_x = int(x + w // 1.95 - moustache_resized.shape[1] // 2)#increase left decrease right
+        moustache_y = int(y + h // 1.95) #increase up decrease down
         
         # Overlay moustache on frame
         for c in range(3):
