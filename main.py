@@ -30,7 +30,7 @@ def main():
       
       #Applying filter
       for(x,y,w,h) in faces:
-         frame=apply_nosering(frame,x,y,w,h)
+         frame=apply_moustache(frame,x,y,w,h)
          
       current_frame=frame.copy() 
       button_coords=capture_button(frame)
