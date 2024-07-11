@@ -3,6 +3,7 @@ from filters.blur import apply_blur
 from functions.capture import capture_button,mouse_click
 from filters.moustache import apply_moustache
 from filters.glass import apply_glass
+from filters.nosering import apply_nosering
 
 current_frame=None
 
@@ -29,7 +30,7 @@ def main():
       
       #Applying filter
       for(x,y,w,h) in faces:
-         frame=apply_moustache(frame,x,y,w,h)
+         frame=apply_nosering(frame,x,y,w,h)
          
       current_frame=frame.copy() 
       button_coords=capture_button(frame)
